@@ -8,54 +8,61 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous"></head>
 
 <body>
   <div class="container">
     <div class="jumbotron">
       <h1 class="display-4">Generateur d'attestation covid-19</h1>
-      <p class="lead">Génère un PDF basé sur celui du gouvernement depuis une interface web</p>
       <hr class="my-4">
     </div>
     <form action="/generate" method="POST" enctype="multipart/form-data" >
       <fieldset>
         <p class="form-group">
-          Nom et prenom : <input type="text" name="name">
+          Nom et prenom : <input class="form-control" type="text" name="name">
         </p>
 
         <p class="form-group">
-          Date de naissance : <input type="text" name="birthdate">
+          Date de naissance : <input class="form-control" type="text" name="birthdate">
         </p>
 
         <p class="form-group">
-          Adresse : <input type="text" name="address">
+          Adresse : <input class="form-control" type="text" name="address">
         </p>
 
         <p class="form-group">
-          Motif<br>
-          <label>Travail <input type="radio" name="reason" value="work" id="work"></label><br>
-          <label>Courses <input type="radio" name="reason" value="shopping" id="shopping"></label><br>
-          <label>Santé <input type="radio" name="reason" value="health" id="health"></label><br>
-          <label>Famille <input type="radio" name="reason" value="family" id="family"></label><br>
-          <label>Sport <input type="radio" name="reason" value="sports" id="sports"></label>
+          Motif :<br>
+          <label><input type="radio" name="reason" value="work" id="work"> Travail</label><br>
+          <label><input type="radio" name="reason" value="shopping" id="shopping"> Courses</label><br>
+          <label><input type="radio" name="reason" value="health" id="health"> Santé</label><br>
+          <label><input type="radio" name="reason" value="family" id="family"> Famille</label><br>
+          <label><input type="radio" name="reason" value="sports" id="sports"> Sport</label>
         </p>
 
         <p class="form-group">
-          Fait à: <input type="text" name="city">
+          Fait à : <input class="form-control" type="text" name="city">
         </p>
 
-        <p class="form-group">
-          Signature (optionnel): <input type="file" name="signature">
-        </p>
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <p class="form-group">
+              Signature (optionnel, png seulement) : <input class="form-control" type="file" name="signature" accept="image/png">
+            </p>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <p class="form-group">
+              <label>Utiliser la signature par defaut : <input type="checkbox" name="default_signature"></label><br>
+              <small>Note: une vraie signature est requise pour que l'attestation soit valide. N'utiliser cette option qu'à des fins de tests</small>
+            </p>
+          </div>
+        </div>
 
         <p class="form-group">
-          <label>Signature par defaut : <input type="checkbox" name="default_signature"></label><br>
-          Note: une vraie signature est requise. A n'utiliser que pour generer une preview
-        </p>
-
-        <p class="form-group">
-          <input type="submit" value="Generer">
+          <input type="submit" class="form-control" value="Generer">
         </p>
       </fieldset>
     </form>
