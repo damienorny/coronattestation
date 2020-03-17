@@ -1,0 +1,15 @@
+{
+  "name": "attestation",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "add": "^2.0.6",
+    "pdf-lib": "^1.4.1",
+    "restify": "^8.5.1",
+    "yarn": "^1.22.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Generateur d'attestation covid-19!</h1>
+      <p class="lead">Genere un PDF basé sur celui du gouvernement depuis une interface web</p>
+      <hr class="my-4">
+    </div>
+    <form action="/generate" method="POST" enctype="multipart/form-data" >
+      <fieldset>
+        <p class="form-group">
+          Nom et prenom : <input type="text" name="name">
+        </p>
+
+        <p class="form-group">
+          Date de naissance : <input type="text" name="birthdate">
+        </p>
+
+        <p class="form-group">
+          Adresse : <input type="text" name="address">
+        </p>
+
+        <p class="form-group">
+          Motif<br>
+          <label>Travail <input type="radio" name="reason" value="work" id="work"></label><br>
+          <label>Courses <input type="radio" name="reason" value="shopping" id="shopping"></label><br>
+          <label>Santé <input type="radio" name="reason" value="health" id="health"></label><br>
+          <label>Famille <input type="radio" name="reason" value="family" id="family"></label><br>
+          <label>Sport <input type="radio" name="reason" value="sports" id="sports"></label>
+        </p>
+
+        <p class="form-group">
+          Fait à: <input type="text" name="city">
+        </p>
+
+        <p class="form-group">
+          Signature (optionnel): <input type="file" name="signature">
+        </p>
+
+        <p class="form-group">
+          Signature par defaut : <input type="checkbox" name="default_signature"><br>
+          Note: une vraie signature est requise. A n'utiliser que pour generer une preview
+        </p>
+
+        <p class="form-group">
+          <input type="submit" value="Generer">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+</body>
+
+</html>
